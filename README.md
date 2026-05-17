@@ -1,59 +1,174 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 🍗 Sazón de Oro
 
-## About Laravel
+### ✨ Sistema Web Moderno para Restaurante ✨
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<img src="public/img/logo.png" width="180">
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<br><br>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+![Laravel](https://img.shields.io/badge/Laravel-12-red?style=for-the-badge&logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.2-blue?style=for-the-badge&logo=php)
+![MySQL](https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql)
+![Status](https://img.shields.io/badge/Status-En%20Desarrollo-green?style=for-the-badge)
 
-## Learning Laravel
+</div>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# 📌 Descripción
 
-## Laravel Sponsors
+**Sazón de Oro** es un sistema web moderno orientado a restaurantes y pollerías, desarrollado con Laravel, enfocado en brindar una experiencia visual atractiva, rápida e intuitiva para los clientes.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+El proyecto busca ofrecer una plataforma elegante para:
+- 🍗 Mostrar productos
+- 🛒 Realizar pedidos
+- 🎁 Mostrar promociones
+- 📱 Tener diseño responsive
+- ⚡ Mejorar la experiencia del usuario
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+# 🚀 Tecnologías Utilizadas
 
-## Contributing
+| Tecnología | Uso |
+|---|---|
+| ⚡ Laravel 12 | Framework Backend |
+| 🐘 PHP 8.2 | Lenguaje principal |
+| 🎨 HTML5 + CSS3 | Diseño y estructura |
+| 💻 JavaScript | Interactividad |
+| 🗄️ MySQL | Base de datos |
+| ⭐ Font Awesome | Iconos |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+# ✨ Características Principales
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+✅ Navbar moderna  
+✅ Hero con carrusel automático  
+✅ Cards de productos recomendados  
+✅ Sección de promociones  
+✅ Footer profesional  
+✅ Diseño responsive  
+✅ Integración con MySQL  
+✅ Arquitectura escalable con Laravel  
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 📷 Vista del Proyecto
 
-## License
+<div align="center">
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 🏠 Página Principal
+
+Sistema moderno inspirado en aplicaciones reales de restaurantes y fast food.
+
+</div>
+
+---
+
+# ⚙️ Instalación
+
+## 1️⃣ Clonar repositorio
+
+```bash
+git clone https://github.com/Angel-ETECH/Sazon-de-oro.git
+```
+
+---
+
+## 2️⃣ Entrar al proyecto
+
+```bash
+cd Sazon-de-oro
+```
+
+---
+
+## 3️⃣ Instalar dependencias
+
+```bash
+composer install
+```
+
+---
+
+## 4️⃣ Configurar entorno
+
+Generar clave:
+
+```bash
+php artisan key:generate
+```
+
+---
+
+## 5️⃣ Configurar base de datos
+
+Editar el archivo `.env`
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=sazon_de_oro
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+---
+
+## 6️⃣ Ejecutar migraciones
+
+```bash
+php artisan migrate
+```
+
+---
+
+## 7️⃣ Iniciar servidor
+
+```bash
+php artisan serve
+```
+
+---
+
+# 📂 Estructura del Proyecto
+
+```bash
+resources/views
+public/css
+public/img
+routes/web.php
+```
+
+---
+
+# 👨‍💻 Desarrollador
+
+<div align="center">
+
+## Angel Gonzales
+
+💻 Desarrollador Full Stack en formación
+
+🔗 GitHub:  
+https://github.com/Angel-ETECH
+
+</div>
+
+---
+
+# 📄 Licencia
+
+Este proyecto fue desarrollado con fines educativos y prácticos.
+
+---
+
+<div align="center">
+
+### ⭐ Gracias por visitar el proyecto ⭐
+
+</div>

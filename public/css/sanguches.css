@@ -1,0 +1,102 @@
+/* PAGE TITLE */
+
+.page-title{
+    width: 100%;
+    padding: 150px 50px 70px;
+    background: #f5f5f5;
+    text-align: center;
+}
+
+.page-title h1{
+    font-size: 60px;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.page-title p{
+    width: 700px;
+    margin: auto;
+    color: #666;
+    font-size: 18px;
+    line-height: 32px;
+}
+/* PAGE BANNER */
+
+.page-banner{
+    width: 100%;
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-overlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+}
+
+.banner-content{
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 2;
+}
+
+.banner-content h1{
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.banner-content p{
+    width: 550px;
+    font-size: 18px;
+    line-height: 32px;
+}
+/* TABS */
+
+.tabs{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.tab{
+    padding: 14px 30px;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: #111;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+.tab:hover{
+    background: #ff0033;
+    color: white;
+}
+
+.tab.active{
+    background: #ff0033;
+    color: white;
+}
+
+.category{
+    display: none;
+}
+
+.active-category{
+    display: block;
+}

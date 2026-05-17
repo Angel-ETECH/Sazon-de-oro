@@ -16,13 +16,30 @@
     <!-- NAVBAR -->
     <header class="navbar">
 
-        <div class="logo">
-            <img src="{{ asset('img/logo.png') }}" alt="">
-        </div>
+        <a href="/" class="logo">
+    <img src="{{ asset('img/logo.png') }}" alt="">
+</a>
 
         <nav class="menu">
-            <a href="#">Promociones</a>
-            <a href="#">Categorías</a>
+            <a href="/promociones">Promociones</a>
+            <div class="dropdown">
+
+    <a href="#">
+        Categorías
+        <i class="fa-solid fa-chevron-down"></i>
+    </a>
+
+    <div class="dropdown-menu">
+
+        <a href="/sanguches">Sánguches</a>
+        <a href="/pardos-brasa">Pardos a la Brasa</a>
+        <a href="/ensaladas">Ensaladas</a>
+        <a href="/chicharrones">Chicharrones</a>
+        <a href="/postres">Postres</a>
+
+    </div>
+
+</div>
             <a href="#">Carta Salón</a>
         </nav>
 
@@ -32,16 +49,15 @@
         </div>
 
         <div class="buttons">
-            <button class="pedido">
-                <i class="fa-solid fa-bag-shopping"></i>
-                Mi Pedido
-            </button>
 
-            <button class="login">
-                <i class="fa-regular fa-user"></i>
-                Ingresar
-            </button>
-        </div>
+    <a href="https://wa.me/51999999999" class="pedido">
+
+        <i class="fa-brands fa-whatsapp"></i>
+        Pedir Ahora
+
+    </a>
+
+</div>
 
     </header>
 

@@ -13,56 +13,78 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
+<!-- NAVBAR -->
+<header class="navbar">
 
-        <a href="/" class="logo">
-    <img src="{{ asset('img/logo.png') }}" alt="">
-</a>
-
-        <nav class="menu">
-            <a href="/promociones">Promociones</a>
-            <div class="dropdown">
-
-    <a href="#">
-        Categorías
-        <i class="fa-solid fa-chevron-down"></i>
+    <a href="/" class="logo">
+        <img src="{{ asset('img/logo.png') }}" alt="Sazón de Oro">
     </a>
 
-    <div class="dropdown-menu">
+    <!-- MENÚ (desktop + móvil) -->
+    <nav class="menu" id="main-menu">
 
-        <a href="/sanguches">Sánguches</a>
-        <a href="/pardos-brasa">Pardos a la Brasa</a>
-        <a href="/ensaladas">Ensaladas</a>
-        <a href="/chicharrones">Chicharrones</a>
-        <a href="/postres">Postres</a>
+        <a href="/promociones">Promociones</a>
+
+        <div class="dropdown">
+
+            <a href="#">
+                Categorías
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div class="dropdown-menu">
+
+                <a href="/sanguches">Sánguches</a>
+                <a href="/pardos-brasa">Pardos a la Brasa</a>
+                <a href="/ensaladas">Ensaladas</a>
+                <a href="/chicharrones">Chicharrones</a>
+                <a href="/postres">Postres</a>
+
+            </div>
+
+        </div>
+
+        <a href="https://maps.app.goo.gl/wrSdyfcs8UNsXhEM9" target="_blank">
+            Ubicación
+        </a>
+
+    </nav>
+
+    <!-- BUSCADOR (se oculta en móvil via CSS) -->
+    <form action="/buscar" method="GET" class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input 
+            type="text"
+            name="buscar"
+            placeholder="¿Qué se te antoja?"
+        >
+
+    </form>
+
+    <div class="buttons">
+
+        <a href="https://wa.me/51999999999" class="pedido">
+
+            <i class="fa-brands fa-whatsapp"></i>
+            Pedir Ahora
+
+        </a>
 
     </div>
 
-</div>
-            <a href="#">Carta Salón</a>
-        </nav>
+    <!-- BOTÓN HAMBURGUESA (solo visible en móvil) -->
+    <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="¿Qué se te antoja?">
-        </div>
+</header>
 
-        <div class="buttons">
-
-    <a href="https://wa.me/51999999999" class="pedido">
-
-        <i class="fa-brands fa-whatsapp"></i>
-        Pedir Ahora
-
-    </a>
-
-</div>
-
-    </header>
-
-    <!-- HERO -->
-    <section class="hero">
+<!-- HERO -->
+<section class="hero">
 
     <div class="slides">
 
@@ -104,7 +126,6 @@
 </section>
 
 <!-- RECOMENDADOS -->
-
 <section class="recomendados">
 
     <h2>Recomendados para ti</h2>
@@ -112,7 +133,6 @@
     <div class="cards">
 
         <!-- CARD 1 -->
-
         <div class="card">
 
             <div class="card-img">
@@ -123,8 +143,6 @@
 
                 <div class="top">
                     <h3>Clásico Combo Contundente</h3>
-
-                    <i class="fa-regular fa-heart"></i>
                 </div>
 
                 <p>
@@ -134,17 +152,23 @@
                 <div class="price">
 
                     <div class="price-info">
+
                         <span class="new-price">S/79.90</span>
 
                         <div class="old">
                             <span class="old-price">S/123.90</span>
                             <span class="discount">35%</span>
                         </div>
+
                     </div>
 
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+                    <a href="https://wa.me/51999999999?text=Hola,%20quiero%20pedir%20Clásico%20Combo%20Contundente%20por%20S/79.90"
+                       target="_blank"
+                       class="whatsapp-btn">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </a>
 
                 </div>
 
@@ -153,7 +177,6 @@
         </div>
 
         <!-- CARD 2 -->
-
         <div class="card">
 
             <div class="card-img">
@@ -164,8 +187,6 @@
 
                 <div class="top">
                     <h3>1 Pollo con guarnición</h3>
-
-                    <i class="fa-regular fa-heart"></i>
                 </div>
 
                 <p>
@@ -178,9 +199,13 @@
                         <span class="new-price">S/89.90</span>
                     </div>
 
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+                    <a href="https://wa.me/51999999999?text=Hola,%20quiero%20pedir%201%20Pollo%20con%20guarnición%20por%20S/89.90"
+                       target="_blank"
+                       class="whatsapp-btn">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </a>
 
                 </div>
 
@@ -189,7 +214,6 @@
         </div>
 
         <!-- CARD 3 -->
-
         <div class="card">
 
             <div class="card-img">
@@ -200,8 +224,6 @@
 
                 <div class="top">
                     <h3>Promo Familiar</h3>
-
-                    <i class="fa-regular fa-heart"></i>
                 </div>
 
                 <p>
@@ -211,17 +233,23 @@
                 <div class="price">
 
                     <div class="price-info">
+
                         <span class="new-price">S/69.90</span>
 
                         <div class="old">
                             <span class="old-price">S/99.90</span>
                             <span class="discount">30%</span>
                         </div>
+
                     </div>
 
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+                    <a href="https://wa.me/51999999999?text=Hola,%20quiero%20pedir%20Promo%20Familiar%20por%20S/69.90"
+                       target="_blank"
+                       class="whatsapp-btn">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </a>
 
                 </div>
 
@@ -230,7 +258,6 @@
         </div>
 
         <!-- CARD 4 -->
-
         <div class="card">
 
             <div class="card-img">
@@ -241,8 +268,6 @@
 
                 <div class="top">
                     <h3>Banquete Pollero</h3>
-
-                    <i class="fa-regular fa-heart"></i>
                 </div>
 
                 <p>
@@ -252,17 +277,23 @@
                 <div class="price">
 
                     <div class="price-info">
+
                         <span class="new-price">S/89.90</span>
 
                         <div class="old">
                             <span class="old-price">S/119.90</span>
                             <span class="discount">25%</span>
                         </div>
+
                     </div>
 
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+                    <a href="https://wa.me/51999999999?text=Hola,%20quiero%20pedir%20Banquete%20Pollero%20por%20S/89.90"
+                       target="_blank"
+                       class="whatsapp-btn">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </a>
 
                 </div>
 
@@ -275,11 +306,9 @@
 </section>
 
 <!-- PROMOCIONES -->
-
 <section class="promos">
 
     <!-- CARD 1 -->
-
     <div class="promo-card">
 
         <div class="promo-img">
@@ -297,16 +326,17 @@
                 ¡La combinación perfecta para un momento único!
             </p>
 
-            <button>
-                Pídelo aquí
-            </button>
+            <a href="/pardos-brasa">
+                <button>
+                    Pídelo aquí
+                </button>
+            </a>
 
         </div>
 
     </div>
 
     <!-- CARD 2 -->
-
     <div class="promo-card">
 
         <div class="promo-img">
@@ -324,61 +354,68 @@
                 de un sabor único en cada bocado.
             </p>
 
-            <button>
-                Ver más
-            </button>
+            <a href="/pardos-brasa">
+                <button>
+                    Ver más
+                </button>
+            </a>
 
         </div>
 
     </div>
 
 </section>
-<!-- FOOTER -->
 
+<!-- FOOTER -->
 <footer class="footer">
 
     <div class="footer-container">
 
         <div class="footer-box">
+
             <h3>NOSOTROS</h3>
 
-            <a href="#">Historia</a>
-            <a href="#">Visión</a>
-            <a href="#">Valores</a>
-            <a href="#">Restaurantes</a>
+            <a href="/vision">Visión</a>
+            <a href="/valores">Valores</a>
+
         </div>
 
         <div class="footer-box">
+
             <h3>SERVICIOS</h3>
 
-            <a href="#">Reservas</a>
-            <a href="#">Catering</a>
-            <a href="#">Fiestas infantiles</a>
-            <a href="#">Vales y Giftcards</a>
+            <a href="/fiestas-infantiles">Fiestas infantiles</a>
+            <a href="/vales-giftcards">Vales y Giftcards</a>
+
         </div>
 
         <div class="footer-box">
+
             <h3>INFORMACIÓN ADICIONAL</h3>
 
-            <a href="#">Valores nutricionales</a>
-            <a href="#">Cartilla de alérgenos</a>
+            <a href="/valores-nutricionales">Valores nutricionales</a>
+            <a href="/desarrollo">Cartilla de alérgenos</a>
+
         </div>
 
         <div class="footer-box">
+
             <h3>POLÍTICAS Y TÉRMINOS</h3>
 
-            <a href="#">Políticas de privacidad</a>
-            <a href="#">Términos y condiciones</a>
-            <a href="#">Promociones comerciales</a>
-            <a href="#">Giftcards</a>
+            <a href="/desarrollo">Políticas de privacidad</a>
+            <a href="/desarrollo">Términos y condiciones</a>
+            <a href="/desarrollo">Promociones comerciales</a>
+
         </div>
 
         <div class="footer-box">
+
             <h3>CONTÁCTANOS</h3>
 
-            <a href="#">Escríbenos</a>
-            <a href="#">Trabaja con nosotros</a>
-            <a href="#">Portal proveedores</a>
+            <a href="/desarrollo">Escríbenos</a>
+            <a href="/desarrollo">Trabaja con nosotros</a>
+            <a href="/desarrollo">Portal proveedores</a>
+
         </div>
 
     </div>
@@ -401,23 +438,69 @@
 </footer>
 
 <script>
+
+    /* --- SLIDER --- */
     let slides = document.querySelectorAll('.slide');
     let index = 0;
 
     function changeSlide(){
-
         slides[index].classList.remove('active');
-
         index++;
-
-        if(index >= slides.length){
-            index = 0;
-        }
-
+        if(index >= slides.length){ index = 0; }
         slides[index].classList.add('active');
     }
 
     setInterval(changeSlide, 4000);
+
+    /* --- MENÚ HAMBURGUESA --- */
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mainMenu     = document.getElementById('main-menu');
+
+    hamburgerBtn.addEventListener('click', function () {
+        const isOpen = mainMenu.classList.toggle('open');
+        hamburgerBtn.classList.toggle('open', isOpen);
+        hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    mainMenu.querySelectorAll('a').forEach(function (link) {
+
+    link.addEventListener('click', function () {
+
+        // NO cerrar si es el botón Categorías
+        if(link.parentElement.classList.contains('dropdown')){
+            return;
+        }
+
+        mainMenu.classList.remove('open');
+
+        hamburgerBtn.classList.remove('open');
+
+        hamburgerBtn.setAttribute('aria-expanded', false);
+
+    });
+
+});
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', function (e) {
+        if (!mainMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+            mainMenu.classList.remove('open');
+            hamburgerBtn.classList.remove('open');
+            hamburgerBtn.setAttribute('aria-expanded', false);
+        }
+    });
+
+    const dropdownBtn = document.querySelector('.dropdown > a');
+
+dropdownBtn.addEventListener('click', function(e){
+
+    e.preventDefault();
+
+    document.querySelector('.dropdown')
+    .classList.toggle('active');
+
+});
+
 </script>
 
 </body>

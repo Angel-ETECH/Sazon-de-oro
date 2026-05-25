@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Postres | Sazón de Oro</title>
+    <title>Valores | Sazón de Oro</title>
 
     <link rel="icon" href="{{ asset('img/logo.png') }}">
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/sanguches.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/valores.css') }}">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
@@ -46,20 +47,27 @@
 
         </div>
 
-        <a href="https://maps.app.goo.gl/wrSdyfcs8UNsXhEM9" target="_blank">
+        <a href="https://maps.app.goo.gl/wrSdyfcs8UNsXhEM9"
+           target="_blank">
+
             Ubicación
+
         </a>
 
     </nav>
 
     <!-- BUSCADOR -->
-    <form action="/buscar" method="GET" class="search-box">
+    <form action="/buscar"
+          method="GET"
+          class="search-box">
 
         <button type="submit">
+
             <i class="fa-solid fa-magnifying-glass"></i>
+
         </button>
 
-        <input 
+        <input
             type="text"
             name="buscar"
             placeholder="¿Qué se te antoja?"
@@ -70,11 +78,12 @@
     <!-- BOTÓN -->
     <div class="buttons">
 
-        <a href="https://wa.me/51999999999?text=Hola,%20quiero%20hacer%20un%20pedido"
+        <a href="https://wa.me/51999999999"
            class="pedido"
            target="_blank">
 
             <i class="fa-brands fa-whatsapp"></i>
+
             Pedir Ahora
 
         </a>
@@ -82,7 +91,8 @@
     </div>
 
     <!-- HAMBURGUESA -->
-    <button class="hamburger" id="hamburger-btn">
+    <button class="hamburger"
+            id="hamburger-btn">
 
         <span></span>
         <span></span>
@@ -95,63 +105,68 @@
 <!-- TITLE -->
 <section class="page-title">
 
-    <h1>Postres</h1>
+    <h1>Valores</h1>
 
     <p>
-        Endulza tu día con nuestros deliciosos postres preparados
-        con el mejor sabor de Sazón de Oro.
+        Nuestros valores representan el compromiso y la pasión
+        con la que trabajamos cada día para brindar la mejor
+        experiencia a nuestros clientes.
     </p>
 
 </section>
 
-<!-- PRODUCTOS -->
-<section class="recomendados">
+<!-- VALORES -->
+<section class="valores-container">
 
-    <div class="cards">
+    <div class="valor-card">
 
-        <!-- PRODUCTOS DINÁMICOS (BD) -->
-        @foreach($productos as $producto)
+        <i class="fa-solid fa-heart"></i>
 
-        <div class="card">
+        <h2>Pasión</h2>
 
-            <div class="card-img">
-                <img src="{{ asset('uploads/'.$producto->imagen) }}" alt="">
-            </div>
+        <p>
+            Cocinamos con dedicación y amor para ofrecer
+            el mejor sabor en cada plato.
+        </p>
 
-            <div class="card-content">
+    </div>
 
-                <div class="top">
-                    <h3>{{ $producto->nombre }}</h3>
-                </div>
+    <div class="valor-card">
 
-                <p>
-                    {{ $producto->descripcion }}
-                </p>
+        <i class="fa-solid fa-star"></i>
 
-                <div class="price">
+        <h2>Calidad</h2>
 
-                    <div class="price-info">
-                        <span class="new-price">
-                            S/{{ $producto->precio }}
-                        </span>
-                    </div>
+        <p>
+            Utilizamos ingredientes frescos y seleccionados
+            para garantizar excelencia en cada preparación.
+        </p>
 
-                    <a href="https://wa.me/51999999999?text=Hola,%20quiero%20pedir%20{{ urlencode($producto->nombre) }}%20-%20S%2F{{ $producto->precio }}"
-                       target="_blank">
+    </div>
 
-                        <button>
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </button>
+    <div class="valor-card">
 
-                    </a>
+        <i class="fa-solid fa-users"></i>
 
-                </div>
+        <h2>Compromiso</h2>
 
-            </div>
+        <p>
+            Trabajamos día a día para brindar una atención
+            rápida, amable y cercana a nuestros clientes.
+        </p>
 
-        </div>
+    </div>
 
-        @endforeach
+    <div class="valor-card">
+
+        <i class="fa-solid fa-handshake"></i>
+
+        <h2>Confianza</h2>
+
+        <p>
+            Construimos relaciones duraderas basadas en
+            honestidad y satisfacción de nuestros clientes.
+        </p>
 
     </div>
 
@@ -171,7 +186,7 @@
 
     });
 
-    /* --- DROPDOWN CATEGORÍAS --- */
+    /* --- DROPDOWN --- */
     const dropdownBtn = document.querySelector('.dropdown > a');
 
     dropdownBtn.addEventListener('click', function(e){
@@ -183,7 +198,7 @@
 
     });
 
-    /* --- CERRAR MENÚ AL DAR CLICK EN LINKS --- */
+    /* --- CERRAR MENÚ --- */
     mainMenu.querySelectorAll('a').forEach(function (link) {
 
         link.addEventListener('click', function () {

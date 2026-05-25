@@ -100,3 +100,26 @@
 .active-category{
     display: block;
 }
+
+/* RESPONSIVE TITLE */
+
+@media(max-width:768px){
+
+    .page-title{
+        padding: 140px 20px 60px;
+        text-align: center;
+    }
+
+    .page-title h1{
+        font-size: 38px;
+        line-height: 45px;
+    }
+
+    .page-title p{
+        width: 100%;
+        font-size: 15px;
+        line-height: 26px;
+        margin-top: 15px;
+    }
+
+}

@@ -10,345 +10,139 @@
     <link rel="stylesheet" href="{{ asset('css/sanguches.css') }}">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
+<!-- NAVBAR -->
+<header class="navbar">
 
-        <a href="/" class="logo">
-    <img src="{{ asset('img/logo.png') }}" alt="">
-</a>
-
-        <nav class="menu">
-            <a href="/promociones">Promociones</a>
-            <div class="dropdown">
-
-    <a href="#">
-        Categorías
-        <i class="fa-solid fa-chevron-down"></i>
+    <a href="/" class="logo">
+        <img src="{{ asset('img/logo.png') }}" alt="">
     </a>
 
-    <div class="dropdown-menu">
+    <!-- MENÚ -->
+    <nav class="menu" id="main-menu">
 
-        <a href="/sanguches">Sánguches</a>
-        <a href="/pardos-brasa">Pardos a la Brasa</a>
-        <a href="/ensaladas">Ensaladas</a>
-        <a href="/chicharrones">Chicharrones</a>
-        <a href="/postres">Postres</a>
+        <a href="/promociones">Promociones</a>
+
+        <div class="dropdown">
+
+            <a href="#">
+                Categorías
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div class="dropdown-menu">
+
+                <a href="/sanguches">Sánguches</a>
+                <a href="/pardos-brasa">Pardos a la Brasa</a>
+                <a href="/ensaladas">Ensaladas</a>
+                <a href="/chicharrones">Chicharrones</a>
+                <a href="/postres">Postres</a>
+
+            </div>
+
+        </div>
+
+        <a href="https://maps.app.goo.gl/wrSdyfcs8UNsXhEM9" target="_blank">
+            Ubicación
+        </a>
+
+    </nav>
+
+    <!-- BUSCADOR -->
+    <form action="/buscar" method="GET" class="search-box">
+
+        <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <input
+            type="text"
+            name="buscar"
+            placeholder="¿Qué se te antoja?"
+        >
+
+    </form>
+
+    <!-- BOTÓN -->
+    <div class="buttons">
+
+        <a href="https://wa.me/51999999999"
+           class="pedido"
+           target="_blank">
+
+            <i class="fa-brands fa-whatsapp"></i>
+            Pedir Ahora
+
+        </a>
 
     </div>
 
-</div>
-            <a href="#">Carta Salón</a>
-        </nav>
+    <!-- HAMBURGUESA -->
+    <button class="hamburger" id="hamburger-btn">
 
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="¿Qué se te antoja?">
-        </div>
+        <span></span>
+        <span></span>
+        <span></span>
 
-        <div class="buttons">
+    </button>
 
-    <a href="https://wa.me/51999999999" class="pedido">
+</header>
 
-        <i class="fa-brands fa-whatsapp"></i>
-        Pedir Ahora
+<!-- TITLE -->
+<section class="page-title">
 
-    </a>
+    <h1>Chicharrones</h1>
 
-</div>
+    <p>
+        Disfruta nuestros deliciosos chicharrones crujientes acompañados
+        de papas, ensaladas y salsas especiales.
+    </p>
 
-    </header>
+</section>
 
-    <!-- TITLE -->
+<!-- PRODUCTOS -->
+<section class="recomendados">
 
-    <section class="page-title">
+    <div class="cards">
 
-        <h1>Chicharrones</h1>
+        @foreach($productos as $producto)
 
-        <p>
-            Disfruta nuestros deliciosos chicharrones crujientes acompañados
-            de papas, ensaladas y salsas especiales.
-        </p>
+        <div class="card">
 
-    </section>
-
-    <!-- PRODUCTOS -->
-
-    <section class="recomendados">
-
-        <div class="cards">
-
-            <!-- CARD 1 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/chicha1.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>Chicharrón Encamotado</h3>
-                    </div>
-
-                    <p>
-                        Chicharrón de Pollo, mix de papas fritas con rejillas
-                        de camotes fritos y ensalada.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/37.90</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
+            <div class="card-img">
+                <img src="{{ asset('uploads/'.$producto->imagen) }}" alt="">
             </div>
 
-            <!-- CARD 2 -->
+            <div class="card-content">
 
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/chicha2.jpg') }}" alt="">
+                <div class="top">
+                    <h3>{{ $producto->nombre }}</h3>
                 </div>
 
-                <div class="card-content">
+                <p>
+                    {{ $producto->descripcion }}
+                </p>
 
-                    <div class="top">
-                        <h3>Chicharrón Arrocero Premium</h3>
+                <div class="price">
+
+                    <div class="price-info">
+                        <span class="new-price">
+                            S/{{ $producto->precio }}
+                        </span>
                     </div>
 
-                    <p>
-                        Chicharrón de Pollo con arroz, papas fritas y ensalada rusa apaltada.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/37.90</span>
-                        </div>
+                    <a href="https://wa.me/51999999999?text=Hola,%20quiero%20pedir%20{{ urlencode($producto->nombre) }}%20-%20S/{{ $producto->precio }}"
+                       target="_blank">
 
                         <button>
-                            <i class="fa-solid fa-plus"></i>
+                            <i class="fa-brands fa-whatsapp"></i>
                         </button>
 
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 3 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/chicha3.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>Promoción Chicharrón Para Mí</h3>
-                    </div>
-
-                    <p>
-                        5 unidades de chicharrón + papas fritas + ensalada + bebida personal.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/38.50</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 4 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/chicha4.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>Chicharrón de Pollo (Porción)</h3>
-                    </div>
-
-                    <p>
-                        4 unidades de chicharrones con choclo y papas doradas.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/29.90</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 5 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/chicha5.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>Chicharrón de Pollo (Fondo)</h3>
-                    </div>
-
-                    <p>
-                        5 unidades de chicharrón con papas fritas y ensalada pardos.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/35.90</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 6 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/chicha6.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>Chicharrón con Ensalada</h3>
-                    </div>
-
-                    <p>
-                        5 unidades de chicharrón acompañadas de ensalada pardos.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/35.90</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 7 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/chicha7.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>Piqueo Chicharrón x6</h3>
-                    </div>
-
-                    <p>
-                        6 unidades de chicharrón acompañadas de salsa Honey Mustard.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/22.90</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 8 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/chicha8.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>Piqueo Chicharrón x12</h3>
-                    </div>
-
-                    <p>
-                        12 unidades de chicharrón acompañadas de salsa Honey Mustard.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/35.90</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
+                    </a>
 
                 </div>
 
@@ -356,7 +150,56 @@
 
         </div>
 
-    </section>
+        @endforeach
+
+    </div>
+
+</section>
+
+<script>
+
+    /* --- MENÚ HAMBURGUESA --- */
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mainMenu = document.getElementById('main-menu');
+
+    hamburgerBtn.addEventListener('click', function () {
+
+        const isOpen = mainMenu.classList.toggle('open');
+
+        hamburgerBtn.classList.toggle('open', isOpen);
+
+    });
+
+    /* --- DROPDOWN CATEGORÍAS --- */
+    const dropdownBtn = document.querySelector('.dropdown > a');
+
+    dropdownBtn.addEventListener('click', function(e){
+
+        e.preventDefault();
+
+        document.querySelector('.dropdown')
+        .classList.toggle('active');
+
+    });
+
+    /* --- CERRAR MENÚ --- */
+    mainMenu.querySelectorAll('a').forEach(function (link) {
+
+        link.addEventListener('click', function () {
+
+            if(link.parentElement.classList.contains('dropdown')){
+                return;
+            }
+
+            mainMenu.classList.remove('open');
+
+            hamburgerBtn.classList.remove('open');
+
+        });
+
+    });
+
+</script>
 
 </body>
 </html>

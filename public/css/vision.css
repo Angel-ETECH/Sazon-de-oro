@@ -1,0 +1,82 @@
+/* =========================
+   VISIÓN
+========================= */
+
+.vision-box{
+    width: 100%;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.vision-img{
+    width: 50%;
+}
+
+.vision-img img{
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.vision-content{
+    width: 50%;
+}
+
+.vision-content h2{
+    font-size: 40px;
+    color: #111;
+    margin-bottom: 25px;
+}
+
+.vision-content p{
+    font-size: 18px;
+    line-height: 32px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 992px){
+
+    .vision-box{
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .vision-img,
+    .vision-content{
+        width: 100%;
+    }
+
+    .vision-img img{
+        height: 320px;
+    }
+
+}
+
+@media(max-width: 768px){
+
+    .vision-content h2{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .vision-content p{
+        font-size: 16px;
+        line-height: 28px;
+        text-align: center;
+    }
+
+    .vision-img img{
+        height: 250px;
+    }
+
+}

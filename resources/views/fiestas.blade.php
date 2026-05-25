@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Postres | Sazón de Oro</title>
+    <title>Fiestas Infantiles | Sazón de Oro</title>
 
     <link rel="icon" href="{{ asset('img/logo.png') }}">
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fiestas.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sanguches.css') }}">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
@@ -46,20 +48,27 @@
 
         </div>
 
-        <a href="https://maps.app.goo.gl/wrSdyfcs8UNsXhEM9" target="_blank">
+        <a href="https://maps.app.goo.gl/wrSdyfcs8UNsXhEM9"
+           target="_blank">
+
             Ubicación
+
         </a>
 
     </nav>
 
     <!-- BUSCADOR -->
-    <form action="/buscar" method="GET" class="search-box">
+    <form action="/buscar"
+          method="GET"
+          class="search-box">
 
         <button type="submit">
+
             <i class="fa-solid fa-magnifying-glass"></i>
+
         </button>
 
-        <input 
+        <input
             type="text"
             name="buscar"
             placeholder="¿Qué se te antoja?"
@@ -70,11 +79,12 @@
     <!-- BOTÓN -->
     <div class="buttons">
 
-        <a href="https://wa.me/51999999999?text=Hola,%20quiero%20hacer%20un%20pedido"
+        <a href="https://wa.me/51999999999"
            class="pedido"
            target="_blank">
 
             <i class="fa-brands fa-whatsapp"></i>
+
             Pedir Ahora
 
         </a>
@@ -82,7 +92,8 @@
     </div>
 
     <!-- HAMBURGUESA -->
-    <button class="hamburger" id="hamburger-btn">
+    <button class="hamburger"
+            id="hamburger-btn">
 
         <span></span>
         <span></span>
@@ -95,63 +106,95 @@
 <!-- TITLE -->
 <section class="page-title">
 
-    <h1>Postres</h1>
+    <h1>Fiestas Infantiles</h1>
 
     <p>
-        Endulza tu día con nuestros deliciosos postres preparados
-        con el mejor sabor de Sazón de Oro.
+        Celebra momentos inolvidables con diversión,
+        deliciosos combos y un ambiente especial
+        para los más pequeños.
     </p>
 
 </section>
 
-<!-- PRODUCTOS -->
-<section class="recomendados">
+<!-- CONTENIDO -->
+<section class="fiestas-container">
 
-    <div class="cards">
+    <div class="fiesta-box">
 
-        <!-- PRODUCTOS DINÁMICOS (BD) -->
-        @foreach($productos as $producto)
+        <div class="fiesta-img">
 
-        <div class="card">
-
-            <div class="card-img">
-                <img src="{{ asset('uploads/'.$producto->imagen) }}" alt="">
-            </div>
-
-            <div class="card-content">
-
-                <div class="top">
-                    <h3>{{ $producto->nombre }}</h3>
-                </div>
-
-                <p>
-                    {{ $producto->descripcion }}
-                </p>
-
-                <div class="price">
-
-                    <div class="price-info">
-                        <span class="new-price">
-                            S/{{ $producto->precio }}
-                        </span>
-                    </div>
-
-                    <a href="https://wa.me/51999999999?text=Hola,%20quiero%20pedir%20{{ urlencode($producto->nombre) }}%20-%20S%2F{{ $producto->precio }}"
-                       target="_blank">
-
-                        <button>
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </button>
-
-                    </a>
-
-                </div>
-
-            </div>
+            <img src="{{ asset('img/banner2.jpg') }}" alt="Fiestas">
 
         </div>
 
-        @endforeach
+        <div class="fiesta-content">
+
+            <h2>Haz feliz a tus pequeños</h2>
+
+            <p>
+                Organizamos fiestas infantiles llenas de alegría,
+                entretenimiento y el mejor sabor de Sazón de Oro.
+            </p>
+
+            <p>
+                Contamos con espacios cómodos, atención personalizada
+                y deliciosos menús para que toda la familia disfrute.
+            </p>
+
+            <a href="https://wa.me/51999999999"
+               target="_blank">
+
+                <button>
+                    Reservar Ahora
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- BENEFICIOS -->
+    <div class="beneficios">
+
+        <div class="beneficio-card">
+
+            <i class="fa-solid fa-cake-candles"></i>
+
+            <h3>Decoración</h3>
+
+            <p>
+                Ambientes decorados especialmente
+                para fiestas inolvidables.
+            </p>
+
+        </div>
+
+        <div class="beneficio-card">
+
+            <i class="fa-solid fa-gamepad"></i>
+
+            <h3>Juegos</h3>
+
+            <p>
+                Diversión asegurada para los niños
+                con actividades y entretenimiento.
+            </p>
+
+        </div>
+
+        <div class="beneficio-card">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            <h3>Combos Especiales</h3>
+
+            <p>
+                Menús deliciosos para niños y adultos
+                preparados al momento.
+            </p>
+
+        </div>
 
     </div>
 
@@ -171,7 +214,7 @@
 
     });
 
-    /* --- DROPDOWN CATEGORÍAS --- */
+    /* --- DROPDOWN --- */
     const dropdownBtn = document.querySelector('.dropdown > a');
 
     dropdownBtn.addEventListener('click', function(e){
@@ -183,7 +226,7 @@
 
     });
 
-    /* --- CERRAR MENÚ AL DAR CLICK EN LINKS --- */
+    /* --- CERRAR MENÚ --- */
     mainMenu.querySelectorAll('a').forEach(function (link) {
 
         link.addEventListener('click', function () {

@@ -12,274 +12,144 @@
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
+<!-- NAVBAR -->
+<header class="navbar">
 
-        <a href="/" class="logo">
-    <img src="{{ asset('img/logo.png') }}" alt="">
-</a>
-
-        <nav class="menu">
-            <a href="/promociones">Promociones</a>
-            <div class="dropdown">
-
-    <a href="#">
-        Categorías
-        <i class="fa-solid fa-chevron-down"></i>
+    <a href="/" class="logo">
+        <img src="{{ asset('img/logo.png') }}" alt="">
     </a>
 
-    <div class="dropdown-menu">
+    <!-- MENÚ -->
+    <nav class="menu" id="main-menu">
 
-        <a href="/sanguches">Sánguches</a>
-        <a href="/pardos-brasa">Pardos a la Brasa</a>
-        <a href="/ensaladas">Ensaladas</a>
-        <a href="/chicharrones">Chicharrones</a>
-        <a href="/postres">Postres</a>
+        <a href="/promociones">Promociones</a>
+
+        <div class="dropdown">
+
+            <a href="#">
+                Categorías
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div class="dropdown-menu">
+
+                <a href="/sanguches">Sánguches</a>
+                <a href="/pardos-brasa">Pardos a la Brasa</a>
+                <a href="/ensaladas">Ensaladas</a>
+                <a href="/chicharrones">Chicharrones</a>
+                <a href="/postres">Postres</a>
+
+            </div>
+
+        </div>
+
+        <a href="https://maps.app.goo.gl/wrSdyfcs8UNsXhEM9" target="_blank">
+            Ubicación
+        </a>
+
+    </nav>
+
+    <!-- BUSCADOR -->
+    <form action="/buscar" method="GET" class="search-box">
+
+        <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <input 
+            type="text"
+            name="buscar"
+            placeholder="¿Qué se te antoja?"
+        >
+
+    </form>
+
+    <!-- BOTÓN -->
+    <div class="buttons">
+
+        <a href="https://wa.me/51999999999"
+           class="pedido"
+           target="_blank">
+
+            <i class="fa-brands fa-whatsapp"></i>
+            Pedir Ahora
+
+        </a>
 
     </div>
 
-</div>
-            <a href="#">Carta Salón</a>
-        </nav>
+    <!-- HAMBURGUESA -->
+    <button class="hamburger" id="hamburger-btn">
 
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="¿Qué se te antoja?">
-        </div>
+        <span></span>
+        <span></span>
+        <span></span>
 
-        <div class="buttons">
+    </button>
 
-    <a href="https://wa.me/51999999999" class="pedido">
+</header>
 
-        <i class="fa-brands fa-whatsapp"></i>
-        Pedir Ahora
+<!-- TITLE -->
+<section class="page-title">
 
-    </a>
+    <h1>Pardos a la Brasa</h1>
 
-</div>
+    <p>
+        Disfruta nuestro delicioso pollo a la brasa acompañado de papas fritas,
+        ensaladas y promociones especiales.
+    </p>
 
-    </header>
+</section>
 
-    <!-- TITLE -->
+<!-- PRODUCTOS -->
+<section class="recomendados">
 
-    <section class="page-title">
+    <div class="cards">
 
-        <h1>Pardos a la Brasa</h1>
+        <!-- PRODUCTOS DINÁMICOS (BD) -->
+        @foreach($productos as $producto)
 
-        <p>
-            Disfruta nuestro delicioso pollo a la brasa acompañado de papas fritas,
-            ensaladas y promociones especiales.
-        </p>
+        <div class="card">
 
-    </section>
+            <div class="card-img">
 
-    <!-- PRODUCTOS -->
-
-    <section class="recomendados">
-
-        <div class="cards">
-
-            <!-- CARD 1 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/pardos1.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>Promoción Tu Chicha 1.5 LT.</h3>
-                    </div>
-
-                    <p>
-                        1 Pardos Brasa + papas fritas + guarnición + botella de chicha de 1.5 LT.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/95.50</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
+                <img src="{{ asset('uploads/'.$producto->imagen) }}" alt="">
 
             </div>
 
-            <!-- CARD 2 -->
+            <div class="card-content">
 
-            <div class="card">
+                <div class="top">
 
-                <div class="card-img">
-                    <img src="{{ asset('img/pardos2.jpg') }}" alt="">
+                    <h3>{{ $producto->nombre }}</h3>
+
                 </div>
 
-                <div class="card-content">
+                <p>{{ $producto->descripcion }}</p>
 
-                    <div class="top">
-                        <h3>Promoción Tú Eliges 1.5 LT.</h3>
+                <div class="price">
+
+                    <div class="price-info">
+
+                        <span class="new-price">
+                            S/{{ $producto->precio }}
+                        </span>
+
                     </div>
 
-                    <p>
-                        1 Pardos Brasa + papas fritas + Inca Kola sin azúcar de 1.5 LT.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/90.90</span>
-                        </div>
+                    <a href="https://wa.me/51999999999?text=Hola,%20quiero%20pedir%20{{ urlencode($producto->nombre) }}%20-%20S%2F{{ $producto->precio }}"
+                       target="_blank">
 
                         <button>
-                            <i class="fa-solid fa-plus"></i>
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
                         </button>
 
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 3 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/pardos3.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>Promoción Tú Eliges 2.25 LT.</h3>
-                    </div>
-
-                    <p>
-                        1 Pardos Brasa + papas fritas + gaseosa de 2.25 LT.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/95.50</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 4 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/pardos4.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>1 Pardos Brasa</h3>
-                    </div>
-
-                    <p>
-                        Este producto incluye deliciosas salsas especiales.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/60.50</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 5 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/pardos5.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>1 Pardos Brasa con guarnición</h3>
-                    </div>
-
-                    <p>
-                        Incluye papas fritas o ensalada + salsas especiales.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/75.50</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 6 -->
-
-            <div class="card">
-
-                <div class="card-img">
-                    <img src="{{ asset('img/pardos6.jpg') }}" alt="">
-                </div>
-
-                <div class="card-content">
-
-                    <div class="top">
-                        <h3>1 Pardos Brasa Full</h3>
-                    </div>
-
-                    <p>
-                        Incluye papas fritas y ensalada regular + salsas.
-                    </p>
-
-                    <div class="price">
-
-                        <div class="price-info">
-                            <span class="new-price">S/88.50</span>
-                        </div>
-
-                        <button>
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-
-                    </div>
+                    </a>
 
                 </div>
 
@@ -287,7 +157,56 @@
 
         </div>
 
-    </section>
+        @endforeach
+
+    </div>
+
+</section>
+
+<script>
+
+    /* --- MENÚ HAMBURGUESA --- */
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mainMenu = document.getElementById('main-menu');
+
+    hamburgerBtn.addEventListener('click', function () {
+
+        const isOpen = mainMenu.classList.toggle('open');
+
+        hamburgerBtn.classList.toggle('open', isOpen);
+
+    });
+
+    /* --- DROPDOWN CATEGORÍAS --- */
+    const dropdownBtn = document.querySelector('.dropdown > a');
+
+    dropdownBtn.addEventListener('click', function(e){
+
+        e.preventDefault();
+
+        document.querySelector('.dropdown')
+        .classList.toggle('active');
+
+    });
+
+    /* --- CERRAR MENÚ AL DAR CLICK EN LINKS --- */
+    mainMenu.querySelectorAll('a').forEach(function (link) {
+
+        link.addEventListener('click', function () {
+
+            if(link.parentElement.classList.contains('dropdown')){
+                return;
+            }
+
+            mainMenu.classList.remove('open');
+
+            hamburgerBtn.classList.remove('open');
+
+        });
+
+    });
+
+</script>
 
 </body>
 </html>

@@ -10,60 +10,89 @@
     <link rel="stylesheet" href="{{ asset('css/sanguches.css') }}">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
 <!-- NAVBAR -->
-    <header class="navbar">
+<header class="navbar">
 
-        <a href="/" class="logo">
-    <img src="{{ asset('img/logo.png') }}" alt="">
-</a>
-
-        <nav class="menu">
-            <a href="/promociones">Promociones</a>
-            <div class="dropdown">
-
-    <a href="#">
-        Categorías
-        <i class="fa-solid fa-chevron-down"></i>
+    <a href="/" class="logo">
+        <img src="{{ asset('img/logo.png') }}" alt="">
     </a>
 
-    <div class="dropdown-menu">
+    <!-- MENÚ -->
+    <nav class="menu" id="main-menu">
 
-        <a href="/sanguches">Sánguches</a>
-        <a href="/pardos-brasa">Pardos a la Brasa</a>
-        <a href="/ensaladas">Ensaladas</a>
-        <a href="/chicharrones">Chicharrones</a>
-        <a href="/postres">Postres</a>
+        <a href="/promociones">Promociones</a>
+
+        <div class="dropdown">
+
+            <a href="#">
+                Categorías
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div class="dropdown-menu">
+
+                <a href="/sanguches">Sánguches</a>
+                <a href="/pardos-brasa">Pardos a la Brasa</a>
+                <a href="/ensaladas">Ensaladas</a>
+                <a href="/chicharrones">Chicharrones</a>
+                <a href="/postres">Postres</a>
+
+            </div>
+
+        </div>
+
+        <a href="https://maps.app.goo.gl/wrSdyfcs8UNsXhEM9" target="_blank">
+            Ubicación
+        </a>
+
+    </nav>
+
+    <!-- BUSCADOR -->
+    <form action="/buscar" method="GET" class="search-box">
+
+        <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <input
+            type="text"
+            name="buscar"
+            placeholder="¿Qué se te antoja?"
+        >
+
+    </form>
+
+    <!-- BOTÓN -->
+    <div class="buttons">
+
+        <a href="https://wa.me/51999999999"
+           class="pedido"
+           target="_blank">
+
+            <i class="fa-brands fa-whatsapp"></i>
+            Pedir Ahora
+
+        </a>
 
     </div>
 
-</div>
-            <a href="#">Carta Salón</a>
-        </nav>
+    <!-- HAMBURGUESA -->
+    <button class="hamburger" id="hamburger-btn">
 
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="¿Qué se te antoja?">
-        </div>
+        <span></span>
+        <span></span>
+        <span></span>
 
-        <div class="buttons">
+    </button>
 
-    <a href="https://wa.me/51999999999" class="pedido">
-
-        <i class="fa-brands fa-whatsapp"></i>
-        Pedir Ahora
-
-    </a>
-
-</div>
-
-    </header>
+</header>
 
 <!-- TITLE -->
-
 <section class="page-title">
 
     <h1>Ensaladas</h1>
@@ -72,212 +101,187 @@
         Disfruta nuestras ensaladas frescas, saludables y llenas de sabor.
     </p>
 
-    <!-- TABS -->
-
     <div class="tabs">
 
-        <button class="tab active" onclick="showCategory('fresca', this)">
+        <button class="tab active"
+                onclick="showCategory('fresca', this)">
+
             Ensalada Fresca
+
         </button>
 
-        <button class="tab" onclick="showCategory('cocida', this)">
+        <button class="tab"
+                onclick="showCategory('cocida', this)">
+
             Ensalada Cocida
+
         </button>
 
-        <button class="tab" onclick="showCategory('delicia', this)">
+        <button class="tab"
+                onclick="showCategory('delicia', this)">
+
             Ensalada Delicia
+
         </button>
 
     </div>
 
 </section>
 
-<!-- ENSALADA FRESCA -->
-
+<!-- FRESCA -->
 <section class="recomendados category active-category" id="fresca">
 
     <div class="cards">
 
-        <div class="card">
+        @isset($fresca)
 
-            <div class="card-img">
-                <img src="{{ asset('img/fresca1.jpg') }}" alt="">
-            </div>
+            @foreach($fresca as $producto)
 
-            <div class="card-content">
+            <div class="card">
 
-                <div class="top">
-                    <h3>Ensalada Fresca Regular</h3>
+                <div class="card-img">
+                    <img src="{{ asset('uploads/'.$producto->imagen) }}" alt="">
                 </div>
 
-                <p>
-                    Lechuga americana, tomate, rabanito y palta + Vinagreta
-                </p>
+                <div class="card-content">
 
-                <div class="price">
-
-                    <div class="price-info">
-                        <span class="new-price">S/20.90</span>
+                    <div class="top">
+                        <h3>{{ $producto->nombre }}</h3>
                     </div>
 
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+                    <p>
+                        {{ $producto->descripcion }}
+                    </p>
 
-                </div>
+                    <div class="price">
 
-            </div>
+                        <span class="new-price">
+                            S/{{ $producto->precio }}
+                        </span>
 
-        </div>
+                        <a href="#">
 
-        <div class="card">
+                            <button>
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </button>
 
-            <div class="card-img">
-                <img src="{{ asset('img/fresca2.jpg') }}" alt="">
-            </div>
+                        </a>
 
-            <div class="card-content">
-
-                <div class="top">
-                    <h3>Ensalada Fresca Grande</h3>
-                </div>
-
-                <p>
-                    Lechuga americana, tomate, rabanito y palta + Vinagreta
-                </p>
-
-                <div class="price">
-
-                    <div class="price-info">
-                        <span class="new-price">S/24.90</span>
                     </div>
 
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-
                 </div>
 
             </div>
 
-        </div>
+            @endforeach
+
+        @endisset
 
     </div>
 
 </section>
 
-<!-- ENSALADA COCIDA -->
-
+<!-- COCIDA -->
 <section class="recomendados category" id="cocida">
 
     <div class="cards">
 
-        <div class="card">
+        @isset($cocida)
 
-            <div class="card-img">
-                <img src="{{ asset('img/cocida1.jpg') }}" alt="">
-            </div>
+            @foreach($cocida as $producto)
 
-            <div class="card-content">
+            <div class="card">
 
-                <div class="top">
-                    <h3>Ensalada Cocida Regular</h3>
+                <div class="card-img">
+                    <img src="{{ asset('uploads/'.$producto->imagen) }}" alt="">
                 </div>
 
-                <p>
-                    Betarraga, zanahoria, vainita y palta + Vinagreta
-                </p>
+                <div class="card-content">
 
-                <div class="price">
-
-                    <div class="price-info">
-                        <span class="new-price">S/20.90</span>
+                    <div class="top">
+                        <h3>{{ $producto->nombre }}</h3>
                     </div>
 
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+                    <p>
+                        {{ $producto->descripcion }}
+                    </p>
 
-                </div>
+                    <div class="price">
 
-            </div>
+                        <span class="new-price">
+                            S/{{ $producto->precio }}
+                        </span>
 
-        </div>
+                        <a href="#">
 
-        <div class="card">
+                            <button>
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </button>
 
-            <div class="card-img">
-                <img src="{{ asset('img/cocida2.jpg') }}" alt="">
-            </div>
+                        </a>
 
-            <div class="card-content">
-
-                <div class="top">
-                    <h3>Ensalada Cocida Grande</h3>
-                </div>
-
-                <p>
-                    Betarraga, zanahoria, vainita y palta + Vinagreta
-                </p>
-
-                <div class="price">
-
-                    <div class="price-info">
-                        <span class="new-price">S/24.90</span>
                     </div>
 
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-
                 </div>
 
             </div>
 
-        </div>
+            @endforeach
+
+        @endisset
 
     </div>
 
 </section>
 
-<!-- ENSALADA DELICIA -->
-
+<!-- DELICIA -->
 <section class="recomendados category" id="delicia">
 
     <div class="cards">
 
-        <div class="card">
+        @isset($delicia)
 
-            <div class="card-img">
-                <img src="{{ asset('img/delicia.jpg') }}" alt="">
-            </div>
+            @foreach($delicia as $producto)
 
-            <div class="card-content">
+            <div class="card">
 
-                <div class="top">
-                    <h3>Ensalada Delicia</h3>
+                <div class="card-img">
+                    <img src="{{ asset('uploads/'.$producto->imagen) }}" alt="">
                 </div>
 
-                <p>
-                    Lechuga americana, espinaca, choclo, tomate,
-                    palta y queso fresco + Vinagreta
-                </p>
+                <div class="card-content">
 
-                <div class="price">
-
-                    <div class="price-info">
-                        <span class="new-price">S/24.90</span>
+                    <div class="top">
+                        <h3>{{ $producto->nombre }}</h3>
                     </div>
 
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+                    <p>
+                        {{ $producto->descripcion }}
+                    </p>
+
+                    <div class="price">
+
+                        <span class="new-price">
+                            S/{{ $producto->precio }}
+                        </span>
+
+                        <a href="#">
+
+                            <button>
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </button>
+
+                        </a>
+
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+            @endforeach
+
+        @endisset
 
     </div>
 
@@ -285,20 +289,61 @@
 
 <script>
 
-    function showCategory(id, button){
+    /* --- MENÚ HAMBURGUESA --- */
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mainMenu = document.getElementById('main-menu');
+
+    hamburgerBtn.addEventListener('click', function () {
+
+        const isOpen = mainMenu.classList.toggle('open');
+
+        hamburgerBtn.classList.toggle('open', isOpen);
+
+    });
+
+    /* --- DROPDOWN CATEGORÍAS --- */
+    const dropdownBtn = document.querySelector('.dropdown > a');
+
+    dropdownBtn.addEventListener('click', function(e){
+
+        e.preventDefault();
+
+        document.querySelector('.dropdown')
+        .classList.toggle('active');
+
+    });
+
+    /* --- CERRAR MENÚ --- */
+    mainMenu.querySelectorAll('a').forEach(function (link) {
+
+        link.addEventListener('click', function () {
+
+            if(link.parentElement.classList.contains('dropdown')){
+                return;
+            }
+
+            mainMenu.classList.remove('open');
+
+            hamburgerBtn.classList.remove('open');
+
+        });
+
+    });
+
+    /* --- TABS ENSALADAS --- */
+    function showCategory(id, button) {
 
         let categories = document.querySelectorAll('.category');
         let tabs = document.querySelectorAll('.tab');
 
-        categories.forEach(category => {
-            category.classList.remove('active-category');
-        });
+        categories.forEach(c => c.classList.remove('active-category'));
+        tabs.forEach(t => t.classList.remove('active'));
 
-        tabs.forEach(tab => {
-            tab.classList.remove('active');
-        });
+        let target = document.getElementById(id);
 
-        document.getElementById(id).classList.add('active-category');
+        if (target) {
+            target.classList.add('active-category');
+        }
 
         button.classList.add('active');
     }

@@ -1,193 +1,231 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Sánguches | Sazón de Oro</title>
 
     <link rel="icon" href="{{ asset('img/logo.png') }}">
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sanguches.css') }}">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
+
 <body>
 
     <!-- NAVBAR -->
     <header class="navbar">
 
         <a href="/" class="logo">
-    <img src="{{ asset('img/logo.png') }}" alt="">
-</a>
 
-        <nav class="menu">
+            <img src="{{ asset('img/logo.png') }}" alt="">
+
+        </a>
+
+        <!-- MENÚ -->
+        <nav class="menu" id="main-menu">
+
             <a href="/promociones">Promociones</a>
+
             <div class="dropdown">
 
-    <a href="#">
-        Categorías
-        <i class="fa-solid fa-chevron-down"></i>
-    </a>
+                <a href="#">
+                    Categorías
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
 
-    <div class="dropdown-menu">
+                <div class="dropdown-menu">
 
-        <a href="/sanguches">Sánguches</a>
-        <a href="/pardos-brasa">Pardos a la Brasa</a>
-        <a href="/ensaladas">Ensaladas</a>
-        <a href="/chicharrones">Chicharrones</a>
-        <a href="/postres">Postres</a>
+                    <a href="/sanguches">Sánguches</a>
+                    <a href="/pardos-brasa">Pardos a la Brasa</a>
+                    <a href="/ensaladas">Ensaladas</a>
+                    <a href="/chicharrones">Chicharrones</a>
+                    <a href="/postres">Postres</a>
 
-    </div>
+                </div>
 
-</div>
-            <a href="#">Carta Salón</a>
+            </div>
+
+            <a href="https://maps.app.goo.gl/wrSdyfcs8UNsXhEM9"
+               target="_blank">
+
+                Ubicación
+
+            </a>
+
         </nav>
 
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="¿Qué se te antoja?">
-        </div>
+        <!-- BUSCADOR -->
+        <form action="/buscar"
+              method="GET"
+              class="search-box">
 
+            <button type="submit">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+            <input
+                type="text"
+                name="buscar"
+                placeholder="¿Qué se te antoja?"
+            >
+
+        </form>
+
+        <!-- BOTONES -->
         <div class="buttons">
 
-    <a href="https://wa.me/51999999999" class="pedido">
+            <a href="https://wa.me/51999999999?text=Hola,%20quiero%20hacer%20un%20pedido"
+               class="pedido"
+               target="_blank">
 
-        <i class="fa-brands fa-whatsapp"></i>
-        Pedir Ahora
+                <i class="fa-brands fa-whatsapp"></i>
 
-    </a>
+                Pedir Ahora
 
-</div>
+            </a>
+
+        </div>
+
+        <!-- HAMBURGUESA -->
+        <button class="hamburger" id="hamburger-btn">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
 
     </header>
+
     <!-- TITLE -->
+    <section class="page-title">
 
-<section class="page-title">
+        <h1>Sánguches</h1>
 
-    <h1>Sánguches</h1>
+        <p>
+            Disfruta nuestros deliciosos sánguches preparados
+            con ingredientes frescos y el auténtico sabor de
+            Sazón de Oro.
+        </p>
 
-    <p>
-        Disfruta nuestros deliciosos sánguches preparados con ingredientes frescos y el auténtico sabor de Sazón de Oro.
-    </p>
-
-</section>
+    </section>
 
     <!-- PRODUCTOS -->
+    <section class="recomendados">
 
-    <!-- PRODUCTOS -->
+        <div class="cards">
 
-<section class="recomendados">
+            <!-- PRODUCTOS DINÁMICOS (BD) -->
+            @foreach($productos as $producto)
 
-    <div class="cards">
+            <div class="card">
 
-        <!-- CARD 1 -->
+                <div class="card-img">
 
-        <div class="card">
-
-            <div class="card-img">
-                <img src="{{ asset('img/sanguche1.jpg') }}" alt="">
-            </div>
-
-            <div class="card-content">
-
-                <div class="top">
-                    <h3>Brioche Brasa con papas y bebida personal</h3>
+                    <img src="{{ asset('uploads/'.$producto->imagen) }}" alt="">
 
                 </div>
 
-                <p>
-                    Sánguche de Pardos Brasa con pan brioche, lechuga, papas al hilo, mayonesa Pardos, papas fritas y bebida personal
+                <div class="card-content">
 
-                </p>
+                    <div class="top">
 
-                <div class="price">
+                        <h3>{{ $producto->nombre }}</h3>
 
-                    <div class="price-info">
-                        <span class="new-price">S/31.90</span>
                     </div>
 
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+                    <p>
+                        {{ $producto->descripcion }}
+                    </p>
+
+                    <div class="price">
+
+                        <div class="price-info">
+
+                            <span class="new-price">
+                                S/{{ $producto->precio }}
+                            </span>
+
+                        </div>
+
+                        <a href="https://wa.me/51999999999?text=Hola,%20quiero%20pedir%20{{ $producto->nombre }}%20-%20S%2F{{ $producto->precio }}"
+                           target="_blank">
+
+                            <button>
+
+                                <i class="fa-brands fa-whatsapp"></i>
+
+                            </button>
+
+                        </a>
+
+                    </div>
 
                 </div>
 
             </div>
+
+            @endforeach
 
         </div>
 
-        <!-- CARD 2 -->
+    </section>
 
-        <div class="card">
+<script>
 
-            <div class="card-img">
-                <img src="{{ asset('img/sanguche2.jpg') }}" alt="">
-            </div>
+    /* --- MENÚ HAMBURGUESA --- */
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mainMenu = document.getElementById('main-menu');
 
-            <div class="card-content">
+    hamburgerBtn.addEventListener('click', function () {
 
-                <div class="top">
-                    <h3>Brioche Brasa</h3>
-                </div>
+        const isOpen = mainMenu.classList.toggle('open');
 
-                <p>
-                    Sánguche de Pardos Brasa con pan brioche, lechuga, papas al hilo y mayonesa Pardos
-                </p>
+        hamburgerBtn.classList.toggle('open', isOpen);
 
-                <div class="price">
+    });
 
-                    <div class="price-info">
-                        <span class="new-price">S/22.90</span>
-                    </div>
+    /* --- DROPDOWN CATEGORÍAS --- */
+    const dropdownBtn = document.querySelector('.dropdown > a');
 
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+    dropdownBtn.addEventListener('click', function(e){
 
-                </div>
+        e.preventDefault();
 
-            </div>
+        document.querySelector('.dropdown')
+        .classList.toggle('active');
 
-        </div>
+    });
 
-        <!-- CARD 3 -->
+    /* --- CERRAR MENÚ AL DAR CLICK EN LINKS --- */
+    mainMenu.querySelectorAll('a').forEach(function (link) {
 
-        <div class="card">
+        link.addEventListener('click', function () {
 
-            <div class="card-img">
-                <img src="{{ asset('img/sanguche3.jpg') }}" alt="">
-            </div>
+            if(link.parentElement.classList.contains('dropdown')){
+                return;
+            }
 
-            <div class="card-content">
+            mainMenu.classList.remove('open');
 
-                <div class="top">
-                    <h3>Brioche Brasa con papas fritas</h3>
-                </div>
+            hamburgerBtn.classList.remove('open');
 
-                <p>
-                    Sánguche de Pardos Brasa con pan brioche, lechuga, papas al hilo, mayonesa Pardos y papas fritas
-                </p>
+        });
 
-                <div class="price">
+    });
 
-                    <div class="price-info">
-                        <span class="new-price">S/27.90</span>
-                    </div>
-
-                    <button>
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+</script>
 
 </body>
+
 </html>

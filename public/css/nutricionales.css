@@ -1,0 +1,132 @@
+/* HERO */
+
+.nutrition-hero{
+    width: 100%;
+    height: 100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.65),
+    rgba(0,0,0,.65)),
+    url('../img/banner3.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 0 25px;
+}
+
+.nutrition-content{
+    max-width: 850px;
+    color: white;
+    margin-top: 70px;
+}
+
+.nutrition-content span{
+    display: inline-block;
+    background: crimson;
+    padding: 10px 24px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.nutrition-content h1{
+    font-size: 72px;
+    margin-bottom: 25px;
+}
+
+.nutrition-content p{
+    font-size: 20px;
+    line-height: 34px;
+    color: #eee;
+}
+
+/* TABLA */
+
+.nutrition-table-section{
+    padding: 100px 50px;
+    background: #f5f5f5;
+}
+
+.nutrition-table-section h2{
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 50px;
+    color: #111;
+}
+
+.table-container{
+    width: 100%;
+    overflow-x: auto;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+thead{
+    background: crimson;
+    color: white;
+}
+
+th,
+td{
+    padding: 22px;
+    text-align: center;
+}
+
+th{
+    font-size: 17px;
+}
+
+td{
+    border-bottom: 1px solid #eee;
+    color: #555;
+    font-size: 15px;
+}
+
+tbody tr:hover{
+    background: #fafafa;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .nutrition-content h1{
+        font-size: 42px;
+    }
+
+    .nutrition-content p{
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .nutrition-table-section{
+        padding: 70px 20px;
+    }
+
+    .nutrition-table-section h2{
+        font-size: 30px;
+    }
+
+    th,
+    td{
+        padding: 16px;
+        font-size: 14px;
+    }
+
+}

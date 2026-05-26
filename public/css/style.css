@@ -454,7 +454,6 @@ body{
     transition: .3s;
 }
 
-/* EFECTO HOVER */
 .socials i:hover{
     background: #ff1e1e;
     transform: translateY(-8px) scale(1.08);
@@ -473,33 +472,27 @@ body{
     font-size: 14px;
 }
 
-/* DROPDOWN */
-
+/* 🔥 DROPDOWN ARREGLADO */
 .dropdown{
-    width: 100%;
+    position: relative;
 }
 
 .dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-radius: 8px;
+
     display: none;
-    position: static;
-    width: 100%;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    background: transparent;
-    padding-top: 10px;
+    flex-direction: column;
+    z-index: 2000;
 }
 
 .dropdown.active .dropdown-menu{
     display: flex;
-    flex-direction: column;
-}
-
-.dropdown:hover .dropdown-menu{
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
 }
 
 .dropdown-menu a{
@@ -516,6 +509,7 @@ body{
     padding-left: 30px;
 }
 
+/* resto igual */
 .price a{
     text-decoration: none;
 }
@@ -566,23 +560,12 @@ body{
 /* RESPONSIVE */
 
 @media(max-width:1400px){
-
-    .cards{
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .promos{
-        flex-direction: column;
-    }
-
+    .cards{ grid-template-columns: repeat(2,1fr); }
+    .promos{ flex-direction: column; }
 }
 
 @media(max-width:1200px){
-
-    .footer-container{
-        grid-template-columns: repeat(2,1fr);
-    }
-
+    .footer-container{ grid-template-columns: repeat(2,1fr); }
 }
 
 @media(max-width:768px){
@@ -597,17 +580,9 @@ body{
         height: 55px;
     }
 
-    .search-box{
-        display: none;
-    }
-
-    .buttons{
-        display: none;
-    }
-
-    .hamburger{
-        display: flex;
-    }
+    .search-box{ display: none; }
+    .buttons{ display: none; }
+    .hamburger{ display: flex; }
 
     .menu{
         position: fixed;
@@ -625,87 +600,33 @@ body{
         display: flex;
     }
 
-    .menu.open{
-        left: 0;
-    }
+    .menu.open{ left: 0; }
 
-    .dropdown{
-        width: 100%;
-    }
+    .cards{ grid-template-columns: 1fr; }
 
-    .dropdown-menu{
-        position: static;
-        width: 100%;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        background: transparent;
-        padding-top: 10px;
-    }
+    .hero{ height: 70vh; margin-top: 80px; }
 
-    .hero{
-        height: 70vh;
-        margin-top: 80px;
-    }
+    .hero-content{ padding: 0 25px; }
 
-    .hero-content{
-        padding: 0 25px;
-    }
+    .promo{ font-size: 16px; letter-spacing: 5px; }
 
-    .promo{
-        font-size: 16px;
-        letter-spacing: 5px;
-    }
+    .hero-content h1{ font-size: 42px; line-height: 46px; }
 
-    .hero-content h1{
-        font-size: 42px;
-        line-height: 46px;
-    }
+    .hero-content p{ width: 100%; font-size: 15px; line-height: 26px; }
 
-    .hero-content p{
-        width: 100%;
-        font-size: 15px;
-        line-height: 26px;
-    }
+    .hero-content button{ width: auto; padding: 14px 25px; font-size: 15px; }
 
-    .hero-content button{
-        width: auto;
-        padding: 14px 25px;
-        font-size: 15px;
-    }
+    .recomendados{ padding: 60px 20px; }
 
-    .cards{
-        grid-template-columns: 1fr;
-    }
+    .promos{ padding: 20px; }
 
-    .recomendados{
-        padding: 60px 20px;
-    }
+    .promo-card{ flex-direction: column; }
 
-    .promos{
-        padding: 20px;
-    }
+    .promo-img, .promo-info{ width: 100%; }
 
-    .promo-card{
-        flex-direction: column;
-    }
+    .promo-info{ padding: 35px 25px; }
 
-    .promo-img,
-    .promo-info{
-        width: 100%;
-    }
+    .footer{ padding: 60px 30px 30px; }
 
-    .promo-info{
-        padding: 35px 25px;
-    }
-
-    .footer{
-        padding: 60px 30px 30px;
-    }
-
-    .footer-container{
-        grid-template-columns: 1fr;
-    }
-
+    .footer-container{ grid-template-columns: 1fr; }
 }
